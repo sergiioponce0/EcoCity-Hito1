@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    layout: Etiqueta raíz necesaria para usar Data Binding.
+    Envuelve todo el diseño.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        ScrollView: Permite hacer scroll si el contenido es muy alto
+        (útil en móviles pequeños).
+        fillViewport="true" hace que ocupe toda la pantalla aunque haya poco contenido.
+    -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark"
+        android:fillViewport="true">
+
+        <!--
+            CONTENEDOR PRINCIPAL
+            Aquí aplicamos los márgenes (padding) para separar el contenido de los bordes.
+        -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+
+            android:paddingTop="100dp"
+            tools:context=".MainActivity">
+            <!--
+                ARRIBA: android:paddingTop="100dp"
+                Esta es la línea clave que has pedido.
+                Empuja todo el contenido 100 píxeles hacia abajo para dejar
+                espacio libre en la parte superior (para la hora, batería, etc).
+            -->
+
+            <!-- === TARJETA DEL EQUIPO LOCAL === -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardLocal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardCornerRadius="24dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="32dp"
+                    android:paddingBottom="32dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/team_local"
+                        android:textColor="@color/neon_blue"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtScoreLocal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="90sp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <!-- Botones Local -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp">
+                        <Button android:id="@+id/btnLocalMinus" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/minus_1" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/gray" android:insetTop="0dp" android:insetBottom="0dp"/>
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+                        <Button android:id="@+id/btnLocalPlus1" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/plus_1" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/neon_blue" android:insetTop="0dp" android:insetBottom="0dp"/>
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+                        <Button android:id="@+id/btnLocalPlus2" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/plus_2" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/neon_blue" android:insetTop="0dp" android:insetBottom="0dp"/>
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+                        <Button android:id="@+id/btnLocalPlus3" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/plus_3" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/neon_blue" android:insetTop="0dp" android:insetBottom="0dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- === TARJETA DEL EQUIPO VISITANTE === -->
+            <!-- Se coloca DEBAJO de la tarjeta Local usando layout_constraintTop_toBottomOf -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardVisitor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardCornerRadius="24dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/cardLocal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="32dp"
+                    android:paddingBottom="32dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/team_visitor"
+                        android:textColor="@color/neon_pink"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtScoreVisitor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="90sp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <!-- Botones Visitante -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp">
+                        <Button android:id="@+id/btnVisitorMinus" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/minus_1" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/gray" android:insetTop="0dp" android:insetBottom="0dp"/>
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+                        <Button android:id="@+id/btnVisitorPlus1" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/plus_1" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/neon_pink" android:insetTop="0dp" android:insetBottom="0dp"/>
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+                        <Button android:id="@+id/btnVisitorPlus2" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/plus_2" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/neon_pink" android:insetTop="0dp" android:insetBottom="0dp"/>
+                        <Space android:layout_width="8dp" android:layout_height="1dp"/>
+                        <Button android:id="@+id/btnVisitorPlus3" android:layout_width="65dp" android:layout_height="60dp" android:text="@string/plus_3" android:textSize="18sp" android:textStyle="bold" android:backgroundTint="@color/neon_pink" android:insetTop="0dp" android:insetBottom="0dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- === BOTONES INFERIORES (Restablecer y Resultados) === -->
+            <LinearLayout
+                android:id="@+id/bottomLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="32dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/cardVisitor"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <!-- Botón Reset -->
+                <Button android:id="@+id/btnReset" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:text="@string/reset_label" android:textSize="18sp" android:backgroundTint="@color/gray" android:textColor="@color/bg_dark" android:textStyle="bold"/>
+                <Space android:layout_width="16dp" android:layout_height="1dp"/>
+                <!-- Botón Resultados -->
+                <Button android:id="@+id/btnNext" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:text="@string/finish_desc" android:textSize="18sp" android:backgroundTint="@color/white" android:textColor="@color/bg_dark" android:textStyle="bold"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

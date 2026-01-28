@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Baloncesto Score</string>
+    <string name="team_local">LOCAL</string>
+    <string name="team_visitor">VISITANTE</string>
+
+    <string name="plus_1">+1</string>
+    <string name="plus_2">+2</string>
+    <string name="plus_3">+3</string>
+    <string name="minus_1">-1</string>
+
+    <string name="reset_label">RESTABLECER</string>
+    <string name="finish_desc">Resultados</string>
+    <string name="back_desc">Volver al partido</string>
+
+    <string name="result_title">Resultado Final</string>
+    <string name="winner_local">¡Gana el Local!</string>
+    <string name="winner_visitor">¡Gana el Visitante!</string>
+    <string name="draw_match">¡Empate!</string>
+    <string name="score_format">%d - %d</string>
+</resources>
