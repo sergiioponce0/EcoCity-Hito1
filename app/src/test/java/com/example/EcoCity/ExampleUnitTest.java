@@ -1,4 +1,4 @@
-package com.example.baloncesto;
+package com.example.ecocity;
 
 import org.junit.Test;
 

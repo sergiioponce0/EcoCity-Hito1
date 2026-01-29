@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Baloncesto"
+rootProject.name = "EcoCity"
 include(":app")
  

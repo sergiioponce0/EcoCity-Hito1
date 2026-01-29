@@ -3,21 +3,17 @@ plugins {
 }
 
 android {
-    namespace = "com.example.baloncesto"
+    namespace = "com.example.ecocity"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.baloncesto"
+        applicationId = "com.example.ecocity"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures {
-        dataBinding = true
     }
 
     buildTypes {
@@ -39,8 +35,6 @@ dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     testImplementation(libs.junit)
