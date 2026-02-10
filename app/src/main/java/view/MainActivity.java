@@ -1,9 +1,8 @@
-package view; // CORREGIDO: Ruta completa del paquete
+package view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-// import android.widget.Toast; // Ya no necesitamos Toast
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         fabAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // CORREGIDO: Ahora abrimos la pantalla de formulario de verdad
                 Intent intent = new Intent(MainActivity.this, FormIncidenciaActivity.class);
                 startActivity(intent);
             }
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void cargarDatos() {
         List<Incidencia> lista = controller.obtenerTodasLasIncidencias();
-        // Asegúrate de que IncidenciaAdapter también tenga el paquete correcto en su archivo
         adapter = new IncidenciaAdapter(lista);
         recyclerView.setAdapter(adapter);
     }

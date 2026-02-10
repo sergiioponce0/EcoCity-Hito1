@@ -31,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String pass = etPassword.getText().toString();
 
-                // Validación simple para Hito 1
                 if (email.isEmpty() || pass.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Rellena los campos", Toast.LENGTH_SHORT).show();
                 } else {
@@ -45,6 +44,6 @@ public class LoginActivity extends AppCompatActivity {
     private void irAlMenuPrincipal() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
-        finish(); // Importante: Cierra el Login para que no se pueda volver atrás
+        finish();
     }
 }

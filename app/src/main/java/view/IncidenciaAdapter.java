@@ -22,7 +22,6 @@ public class IncidenciaAdapter extends RecyclerView.Adapter<IncidenciaAdapter.In
         this.listaIncidencias = listaIncidencias;
     }
 
-    // Este método crea el "molde" visual (infla el layout item_incidencia)
     @NonNull
     @Override
     public IncidenciaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,7 +30,7 @@ public class IncidenciaAdapter extends RecyclerView.Adapter<IncidenciaAdapter.In
         return new IncidenciaViewHolder(view);
     }
 
-    // Este método rellena los datos en cada posición
+    // Rellena los datos en cada posición
     @Override
     public void onBindViewHolder(@NonNull IncidenciaViewHolder holder, int position) {
         Incidencia incidencia = listaIncidencias.get(position);
